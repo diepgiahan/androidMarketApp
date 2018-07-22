@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Market</string>
+    <string name="old_price"> <strike>Old Price</strike> </string>
+</resources>
