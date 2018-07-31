@@ -1,15 +1,11 @@
-package com.example.hhmt.findfunction;
+package com.example.admin.market;
 
 public class Products {
-    private String name;
-    private String description;
-    private String newprice;
-    private String oldprice;
-    private int res;
-    private int id;
-    private int quantity=1;
-    private double rate;
-
+    String name;
+    String newprice;
+    String oldprice;
+    int res;
+    int quantity=1;
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
@@ -19,14 +15,7 @@ public class Products {
         return quantity;
     }
 
-    public Products(String name, String description, String newprice, double rate){
-        this.name = name;
-        this.description = description;
-        this.newprice = newprice;
-        this.rate = rate;
-    }
-
-   public Products(String name, String newprice, String oldprice, int res) {
+    public Products(String name, String newprice, String oldprice, int res) {
         this.name = name;
         this.newprice = newprice;
         this.oldprice = oldprice;
@@ -71,27 +60,4 @@ public class Products {
         this.res = res;
     }
 
-    public double getRate() {
-        return rate;
-    }
-
-    public void setRate(float rate) {
-        this.rate = rate;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }
