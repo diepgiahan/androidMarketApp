@@ -1,0 +1,55 @@
+package com.example.dghan.androidmarketapp;
+
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import com.example.dghan.androidmarketapp.UserDialog.LoginDialog;
+import com.example.dghan.androidmarketapp.UserDialog.RegisterDialog;
+
+public class MainActivity extends AppCompatActivity {
+    Button btnLogin, btnRegister;
+    int switchDialog = -1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchDialog = loginDialog();
+            }
+        });
+
+        btnRegister = (Button) findViewById(R.id.btnRegistration);
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchDialog = registerDialog();
+            }
+        });
+        while(switchDialog != -1){
+            if(switchDialog == 0)
+                loginDialog();
+            if(switchDialog == 1)
+                registerDialog();
+        }
+    }
+    public int loginDialog(){
+        FragmentManager fm = getSupportFragmentManager();
+        LoginDialog loginDialog = LoginDialog.newInstance("login");
+        loginDialog.show(fm, null);
+        return loginDialog.switchDialog;
+    }
+    public int registerDialog(){
+        FragmentManager fm = getSupportFragmentManager();
+        RegisterDialog registerDialog = RegisterDialog.newInstance("register");
+        registerDialog.show(fm, null);
+        return registerDialog.switchDialog;
+    }
+}

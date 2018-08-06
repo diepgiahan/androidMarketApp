@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:paddingTop="4dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:textStyle="bold"
+                android:text="Settings"
+                android:textSize="30dp"
+                android:textColor="#E55233"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <View
+
+                android:background="#c6afaf"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"/>
+            <Button
+                android:paddingTop="8dp"
+                android:drawableLeft="@drawable/ic_home"
+                android:text="    Home"
+                android:textAllCaps="false"
+                android:textSize="20dp"
+                android:background="#f9c3d3"
+                android:layout_weight="1"
+                android:id="@+id/homebtn"
+
+
+                android:gravity="left|center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <View
+
+                android:background="#c6afaf"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"/>
+            <Button
+                android:drawableLeft="@drawable/ic_people"
+                android:layout_weight="1"
+                android:id="@+id/accountbtn"
+                android:text="    Account"
+                android:textAllCaps="false"
+                android:textSize="20dp"
+                android:background="#f9c3d3"
+                android:gravity="left|center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+
+                android:background="#c6afaf"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"/>
+
+            <Button
+
+                android:drawableLeft="@drawable/ic_cart"
+                android:layout_weight="1"
+                android:id="@+id/cartbtn"
+                android:text="    Cart"
+                android:textAllCaps="false"
+                android:textSize="20dp"
+                android:background="#f9c3d3"
+                android:gravity="left|center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
