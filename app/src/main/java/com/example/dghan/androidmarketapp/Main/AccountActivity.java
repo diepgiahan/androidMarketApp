@@ -16,10 +16,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dghan.androidmarketapp.Account.LoginDialog;
+import com.example.dghan.androidmarketapp.Account.RegisterDialog;
 import com.example.dghan.androidmarketapp.R;
 
 public class AccountActivity extends Fragment {
     boolean switchActivity = false;
+    int switchDialog = -1;
     View view;
     ImageView avatar;
     TextView username;
@@ -83,7 +86,6 @@ public class AccountActivity extends Fragment {
     }
     public void guestAccount(){ // return logged in (or successfully registered
         switchActivity = false;
-        final int[] switchDialog = {-1};
         avatar = (ImageView)view.findViewById(R.id.avatar);
         //avatar.setImageResource(R.drawable.man);
         avatarImage = BitmapFactory.decodeResource(getResources(), R.drawable.man);
@@ -95,34 +97,38 @@ public class AccountActivity extends Fragment {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switchDialog[0] = loginDialog();
+                loginDialog();
+                loop();
             }
         });
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switchDialog[0] = registerDialog();
+                registerDialog();
+                loop();
             }
         });
-        while(switchDialog[0] != -1){
-            if(switchDialog[0] == 0)
-                loginDialog();
-            if(switchDialog[0] == 1)
-                registerDialog();
-        }
         // @todo add search history
     }
-    public int loginDialog(){
-        FragmentManager fm = getFragmentManager();//getSupportFragmentManager();
-        com.example.dghan.androidmarketapp.UserDialog.LoginDialog loginDialog = com.example.dghan.androidmarketapp.UserDialog.LoginDialog.newInstance("login");
-        loginDialog.show(fm, null);
-        return loginDialog.switchDialog;
+    public void loop(){
+        while(switchDialog != -1){
+            if(switchDialog == 0)
+                loginDialog();
+            if(switchDialog == 1)
+                registerDialog();
+        }
     }
-    public int registerDialog(){
+    public void loginDialog(){
         FragmentManager fm = getFragmentManager();//getSupportFragmentManager();
-        com.example.dghan.androidmarketapp.UserDialog.RegisterDialog registerDialog = com.example.dghan.androidmarketapp.UserDialog.RegisterDialog.newInstance("register");
+        LoginDialog loginDialog = LoginDialog.newInstance("login");
+        loginDialog.show(fm, null);
+        switchDialog = loginDialog.switchDialog;
+    }
+    public void registerDialog(){
+        FragmentManager fm = getFragmentManager();//getSupportFragmentManager();
+        RegisterDialog registerDialog = RegisterDialog.newInstance("register");
         registerDialog.show(fm, null);
-        return registerDialog.switchDialog;
+        switchDialog = registerDialog.switchDialog;
     }
     public boolean changeAvatar(){
         // @todo changeAvatar
