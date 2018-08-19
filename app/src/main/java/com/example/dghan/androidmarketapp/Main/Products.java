@@ -1,6 +1,8 @@
 package com.example.dghan.androidmarketapp.Main;
 
-public class Products {
+import java.io.Serializable;
+
+public class Products implements Serializable {
     String name;
     String newprice;
     String oldprice;
