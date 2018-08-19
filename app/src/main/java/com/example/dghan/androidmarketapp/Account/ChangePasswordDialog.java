@@ -22,7 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginDialog extends DialogFragment {
+public class ChangePasswordDialog extends DialogFragment {
     public static String name;
     private EditText emailLogin, passwordLogin;
     private FirebaseAuth firebaseAuth;
@@ -41,52 +41,29 @@ public class LoginDialog extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.dialog_login, container);
+        return inflater.inflate(R.layout.dialog_changepassword, container);
     }
-
+//@todo log in successful than allow to change password..
+    //already midnight ~ g9
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Toast.makeText(getActivity(), "Getting to Login", Toast.LENGTH_LONG).show();
         login(view);
     }
     public void login(View view) {
-        emailLogin = (EditText) view.findViewById(R.id.loginEmail);
-        passwordLogin = (EditText) view.findViewById(R.id.loginPassword);
-        TextView loginProblem = (TextView) view.findViewById(R.id.loginProblem);
+        emailLogin = (EditText) view.findViewById(R.id.changePasswordEmail);
+        passwordLogin = (EditText) view.findViewById(R.id.changePasswordNewPassword1);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        loginProblem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.putExtra("switchDialog", -2);//contact me..
-                intent.putExtra("loggedIn", false);
-                getTargetFragment().onActivityResult(getTargetRequestCode(), 1651077, intent);
-                getDialog().dismiss();
-            }
-        });
-        TextView registerInstead = (TextView) view.findViewById(R.id.registerInstead);
-        registerInstead.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                Intent intent = new Intent();
-                intent.putExtra("switchDialog", 1);
-                intent.putExtra("loggedIn", false);
-                getTargetFragment().onActivityResult(getTargetRequestCode(), 1651077, intent);
-                getDialog().dismiss();
-                return false;
-            }
-        });
-        Button btnLogin = (Button) view.findViewById(R.id.btnLogin);
+        Button btnLogin = (Button) view.findViewById(R.id.btnChangePassword);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnUserLogin_Click(view);
+                btnUserChangePassword_Click(view);
             }
         });
     }
-    private void btnUserLogin_Click(View view) {
+    private void btnUserChangePassword_Click(View view) {
         final ProgressDialog progressDialog = ProgressDialog.show(getActivity(), "Please wait...", "Proccessing...", true);
 
         (firebaseAuth.signInWithEmailAndPassword(emailLogin.getText().toString(), passwordLogin.getText().toString()))
@@ -94,12 +71,12 @@ public class LoginDialog extends DialogFragment {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
-//@todo well show the user page..
+
                         if (task.isSuccessful()) {
                             Toast.makeText(getActivity(), "Login successful", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent();
-                            intent.putExtra("switchDialog", -1);
-                            intent.putExtra("loggedIn", true);
+                            intent.putExtra("switchDialog", 0);
+                            intent.putExtra("loggedIn", false);
                             getTargetFragment().onActivityResult(getTargetRequestCode(), 1651077, intent);
                             getDialog().dismiss();
                             //Intent i = new Intent(LoginActivity.this, ProfileActivity.class);
@@ -115,5 +92,5 @@ public class LoginDialog extends DialogFragment {
                     }
                 });
     }
-}
 
+}
