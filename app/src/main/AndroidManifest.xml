@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dghan.androidmarketapp">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,13 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchResultActivity"></activity>
+        <activity android:name=".Search.SearchResultActivity"></activity>
 
-        <activity android:name=".HomeActivity"
+        <activity android:name=".Main.HomeActivity"
             android:fitsSystemWindows="true"
             android:windowSoftInputMode="adjustPan|adjustResize"></activity>
 
-        <activity android:name=".AccountActivity"
+        <activity android:name=".Account.AccountActivity"
             android:fitsSystemWindows="true"
             android:windowSoftInputMode="adjustPan|adjustResize"></activity>
     </application>
