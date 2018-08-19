@@ -1,10 +1,12 @@
 package com.example.dghan.androidmarketapp.Account;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -15,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dghan.androidmarketapp.Main.AccountActivity;
 import com.example.dghan.androidmarketapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -51,7 +54,6 @@ public class RegisterDialog extends DialogFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //String data = getArguments().getString("data", "");
-        Toast.makeText(getActivity(), "Getting to Register", Toast.LENGTH_LONG).show();
         register(view);
     }
     public void register(View view) {
@@ -65,6 +67,10 @@ public class RegisterDialog extends DialogFragment {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switchDialog = 0;
+                Intent intent = new Intent();
+                intent.putExtra("switchDialog", 0);
+                intent.putExtra("loggedIn", false);
+                getTargetFragment().onActivityResult(getTargetRequestCode(), 1651077, intent);
                 getDialog().dismiss();
                 return false;
             }
@@ -94,6 +100,11 @@ public class RegisterDialog extends DialogFragment {
 
                         if (task.isSuccessful()) {
                             Toast.makeText(getActivity(), "Registration successful", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent();
+                            intent.putExtra("switchDialog", -1);
+                            intent.putExtra("loggedIn", true);
+                            getTargetFragment().onActivityResult(getTargetRequestCode(), 1651077, intent);
+                            getDialog().dismiss();
                             //Intent i = new Intent(register.this, LoginActivity.class);
                             //startActivity(i);
                         }else{

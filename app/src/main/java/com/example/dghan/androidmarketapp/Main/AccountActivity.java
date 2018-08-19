@@ -1,10 +1,14 @@
 package com.example.dghan.androidmarketapp.Main;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -16,13 +20,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dghan.androidmarketapp.Account.ChangePasswordDialog;
 import com.example.dghan.androidmarketapp.Account.LoginDialog;
+//import com.example.dghan.androidmarketapp.Account.RegisterDialog.OnDialogListener;
 import com.example.dghan.androidmarketapp.Account.RegisterDialog;
 import com.example.dghan.androidmarketapp.R;
 
-public class AccountActivity extends Fragment {
-    boolean switchActivity = false;
-    int switchDialog = -1;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import static java.lang.String.valueOf;
+
+public class AccountActivity extends Fragment{// implements OnDialogListener {
+    static boolean loggedIn = false;
+    static int switchDialog = -1;
     View view;
     ImageView avatar;
     TextView username;
@@ -40,10 +51,11 @@ public class AccountActivity extends Fragment {
             view = LayoutInflater.from(getContext()).inflate(R.layout.activity_account_login,container,false);
             normalAccount();
         }
-        if(switchActivity)  onRefresh();
+        //        if(switchActivity)  onRefresh();
         return view;
     }
     public void onRefresh(){
+        Toast.makeText(getContext(), "Refresh", Toast.LENGTH_LONG).show();
         Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_container);
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.detach(currentFragment);
@@ -51,11 +63,12 @@ public class AccountActivity extends Fragment {
         fragmentTransaction.commit();
     }
     public void normalAccount(){
-        switchActivity = false;
         final TextView emailView = (TextView)view.findViewById(R.id.emailLogin);
         final TextView addressView = (TextView)view.findViewById(R.id.addressLogin);
         final TextView telView = (TextView)view.findViewById(R.id.telLogin);
 
+        //@todo add changepassword text view..
+        //@todo generate user id
         avatar = (ImageView)view.findViewById(R.id.avatar1);
         avatar.setImageResource(R.drawable.man); // saved image
         avatar.setOnClickListener(new View.OnClickListener() {
@@ -80,12 +93,13 @@ public class AccountActivity extends Fragment {
                 username_str = "Guest user";
 //                    avatarImage = BitmapFactory.decodeResource(getResources(), R.drawable.man);// this will be function by the prev...
                 // refresh activity
-                switchActivity = true;
+                loggedIn = false;
+                onRefresh();
             }
         });
     }
     public void guestAccount(){ // return logged in (or successfully registered
-        switchActivity = false;
+        loggedIn = false;
         avatar = (ImageView)view.findViewById(R.id.avatar);
         //avatar.setImageResource(R.drawable.man);
         avatarImage = BitmapFactory.decodeResource(getResources(), R.drawable.man);
@@ -98,41 +112,59 @@ public class AccountActivity extends Fragment {
             @Override
             public void onClick(View view) {
                 loginDialog();
-                loop();
             }
         });
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 registerDialog();
-                loop();
             }
         });
         // @todo add search history
     }
     public void loop(){
-        while(switchDialog != -1){
-            if(switchDialog == 0)
-                loginDialog();
-            if(switchDialog == 1)
-                registerDialog();
+        Toast.makeText(getContext(), valueOf(switchDialog), Toast.LENGTH_LONG).show();
+        switch (switchDialog) {
+            case 0: loginDialog();  break;
+            case 1: registerDialog();   break;
+            case -2: //sorry for being mean but this is too late to code..
+                ProgressDialog progressDialog = ProgressDialog.show(getActivity(), "Need help?", "Contact me at my fake\nphone number 01668 666 666", true);
+                progressDialog.setCanceledOnTouchOutside(true);
+                break;
         }
     }
+    public void changePasswordDialog(){
+        DialogFragment changePasswordDialog = new ChangePasswordDialog();
+        changePasswordDialog.setTargetFragment(this, 1651077);
+        changePasswordDialog.show(getFragmentManager(), null);
+    }
     public void loginDialog(){
-        FragmentManager fm = getFragmentManager();//getSupportFragmentManager();
-        LoginDialog loginDialog = LoginDialog.newInstance("login");
-        loginDialog.show(fm, null);
-        switchDialog = loginDialog.switchDialog;
+        DialogFragment loginDialog = new LoginDialog();
+        loginDialog.setTargetFragment(this, 1651077);
+        loginDialog.show(getFragmentManager(), null);
     }
     public void registerDialog(){
-        FragmentManager fm = getFragmentManager();//getSupportFragmentManager();
-        RegisterDialog registerDialog = RegisterDialog.newInstance("register");
-        registerDialog.show(fm, null);
-        switchDialog = registerDialog.switchDialog;
+        DialogFragment registerDialog = new RegisterDialog();
+        registerDialog.setTargetFragment(this, 1651077);
+        registerDialog.show(getFragmentManager(), null);
     }
     public boolean changeAvatar(){
         // @todo changeAvatar
         //avatarImage = BitmapFactory.decodeResource(getResources(), R.drawable.man);
         return true; // work fine
+    }
+    /*@Override
+    public void onDialogResult(int switchDialog, boolean loggedIn) {
+        Toast.makeText(getContext(), "got here", Toast.LENGTH_SHORT).show();
+        this.switchDialog = switchDialog;
+        this.loggedIn = loggedIn;
+    }*/
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Toast.makeText(getContext(), "got here", Toast.LENGTH_SHORT).show();
+        super.onActivityResult(requestCode, resultCode, data);
+        switchDialog = data.getIntExtra("switchDialog", -1);
+        loggedIn = data.getBooleanExtra("loggedIn", false);
+        loop();
     }
 }
