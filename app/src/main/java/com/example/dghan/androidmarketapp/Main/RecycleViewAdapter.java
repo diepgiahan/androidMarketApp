@@ -20,10 +20,16 @@ public class RecycleViewAdapter  extends RecyclerView.Adapter<RecycleViewAdapter
     private List<Products> mData;
     int res;
 
-    public RecycleViewAdapter(Context context, List<Products> mData,int res) {
+    public interface OnItemClickListener {
+        void onItemClick(Products item);
+    }
+    private final OnItemClickListener listener;
+
+    public RecycleViewAdapter(Context context, List<Products> mData, int res, OnItemClickListener listener) {
         this.context = context;
         this.mData = mData;
         this.res=res;
+        this.listener = listener;
     }
 
     @NonNull
@@ -43,6 +49,7 @@ public class RecycleViewAdapter  extends RecyclerView.Adapter<RecycleViewAdapter
         holder.oldprice.setPaintFlags(holder.oldprice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         /** END @Han add strikethrough text for oldprice */
         holder.pic.setImageResource(mData.get(position).getRes());
+        holder.bind(mData.get(position), listener);
     }
 
     @Override
@@ -64,6 +71,14 @@ public class RecycleViewAdapter  extends RecyclerView.Adapter<RecycleViewAdapter
             oldprice=(TextView)itemView.findViewById(R.id.oldprice);
             newprice=(TextView)itemView.findViewById(R.id.newprice);
             pic=(ImageView)itemView.findViewById(R.id.pimage);
+        }
+        public void bind(final Products item, final OnItemClickListener listener) {
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    listener.onItemClick(item);
+                }
+            });
         }
     }
 }

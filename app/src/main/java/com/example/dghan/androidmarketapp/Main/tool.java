@@ -3,15 +3,9 @@ package com.example.dghan.androidmarketapp.Main;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewManager;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.Toolbar;
 
 import com.example.dghan.androidmarketapp.R;
 
@@ -37,7 +31,7 @@ public class tool extends android.support.v7.widget.Toolbar {
 
     void init()
     {
-        inflate(getContext(),R.layout.customtoolbar,this);
+        inflate(getContext(), R.layout.customtoolbar,this);
         searchBar=new EditText(getContext());
         searchBar.setHint("Enter a product here . . .");
         ImageButton search=(ImageButton)findViewById(R.id.searchbtn);
