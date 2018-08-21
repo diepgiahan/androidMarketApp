@@ -1,11 +1,8 @@
 package com.example.dghan.androidmarketapp.Main;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 

@@ -27,6 +27,7 @@
         <activity android:name=".Account.AccountActivity"
             android:fitsSystemWindows="true"
             android:windowSoftInputMode="adjustPan|adjustResize"></activity>
+        <activity android:name=".Main.show_product"/>
     </application>
 
 </manifest>

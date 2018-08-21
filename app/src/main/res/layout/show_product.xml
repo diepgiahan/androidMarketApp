@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_marginTop="3dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="#666565"
+                    android:textSize="12dp"
+                    android:background="@drawable/rectangle_btn"
+                    android:text="ADD"
+                    android:id="@+id/showproduct_addtocart"
+                    android:layout_width="75dp"
+                    android:layout_height="38dp" />
+                <Button
+                    android:id="@+id/showproduct_connect"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="#666565"
+                    android:textSize="12dp"
+                    android:layout_marginLeft="4dp"
+                    android:background="@drawable/rectangle_btn"
+                    android:text="Contact"
+                    android:layout_width="75dp"
+                    android:layout_height="38dp" />
+            </LinearLayout>
+
+            <ImageView
+
+                android:layout_marginTop="10dp"
+                android:src="@drawable/j3"
+                android:id="@+id/showproduct_img"
+                android:foregroundGravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="320dp" />
+
+            <View
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="#c2baba"
+                android:layout_width="360dp"
+                android:layout_height="4dp"/>
+
+            <TextView
+                android:id="@+id/showproduct_name"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="#0b1d30"
+                android:text="Nike Air Jordan 3 "
+                android:textSize="33dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/showproduct_pricelayout"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="17dp"
+                    android:textAllCaps="true"
+                    android:text="P r i c e"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/showproduct_price"
+                    android:textColor="#091929"
+                    android:gravity="right"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="19dp"
+                    android:text="$300"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <View
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="#e6dddd"
+                android:layout_width="335dp"
+                android:layout_height="4dp"/>
+            <LinearLayout
+                android:id="@+id/showproduct_type_layout"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="17dp"
+                    android:text="T y p e"
+                    android:textAllCaps="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/showproduct_type"
+                    android:textColor="#091929"
+                    android:gravity="right"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="19dp"
+                    android:text="Shoes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <View
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="#e6dddd"
+                android:layout_width="335dp"
+                android:layout_height="4dp"/>
+            <LinearLayout
+                android:id="@+id/showproduct_relatedproduct"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="17dp"
+                    android:text="R E L A T E D P R O D U C T S"
+                    android:textAllCaps="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
