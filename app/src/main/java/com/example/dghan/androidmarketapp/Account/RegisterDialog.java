@@ -83,15 +83,14 @@ public class RegisterDialog extends DialogFragment {
             }
         });
     }
-    public void btnUserRegister_Click(View v) {
-        do {
+    public void btnUserRegister_Click(View view) {
+        //do {
             email = txtEmailAddress.getText().toString();
             password = txtPassword.getText().toString();
             txtPassword.setText("");
-        }while(!checkValid());
-        firebaseAuth = FirebaseAuth.getInstance();
-
+        //}while(!checkValid());
         final ProgressDialog progressDialog = ProgressDialog.show(getActivity(), "Please wait...", "Processing...", true);
+        firebaseAuth = FirebaseAuth.getInstance();
         (firebaseAuth.createUserWithEmailAndPassword(email, password))
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
