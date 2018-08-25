@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10">
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/shipping"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_height="35dp"
+            android:background="@color/colorWhite2"
+            android:textColor="@color/colorBlack"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text="Nhập địa chỉ của bạn"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_height="100dp"
+            android:cursorVisible="false"
+            android:background="@drawable/single_border"/>
+    </LinearLayout>
+    </ScrollView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"
+        android:background="@color/colorMain4"
+        android:text="XÁC NHẬN ĐẶT HÀNG"/>
+</LinearLayout>

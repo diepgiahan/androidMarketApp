@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "820412070362",
+    "firebase_url": "https://androidmarketapp-116d8.firebaseio.com",
+    "project_id": "androidmarketapp-116d8",
+    "storage_bucket": "androidmarketapp-116d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820412070362:android:83d15b0973917f24",
+        "android_client_info": {
+          "package_name": "com.example.admin.finalprojectcs426finalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820412070362-4chnis5u7m7c4di5bp625jnote5jks1f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.admin.finalprojectcs426finalproject",
+            "certificate_hash": "0cc499177b84e4788c2b9d85c1024d94f70afb80"
+          }
+        },
+        {
+          "client_id": "820412070362-e8cpm3ohvuvs3u93sr0dbhmh3olttsce.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN8dmbTas_WbrEBQ_yg8WswvaH6LG_bag"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820412070362-e8cpm3ohvuvs3u93sr0dbhmh3olttsce.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820412070362:android:50f7ff75066cbfa7",
+        "android_client_info": {
+          "package_name": "com.example.dghan.androidmarketapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820412070362-fuqbuj2q2gi8f2uoovnr41egotb0tp9f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dghan.androidmarketapp",
+            "certificate_hash": "2352b21616ea0f7f4943a1f2494d00782d4cd412"
+          }
+        },
+        {
+          "client_id": "820412070362-e8cpm3ohvuvs3u93sr0dbhmh3olttsce.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN8dmbTas_WbrEBQ_yg8WswvaH6LG_bag"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820412070362-e8cpm3ohvuvs3u93sr0dbhmh3olttsce.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
