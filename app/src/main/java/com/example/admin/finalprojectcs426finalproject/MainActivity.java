@@ -27,6 +27,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ViewFlipper FlashSaleContainer;
     ListView CategoryContainer;
+    TextView notiNotiTextView, notiChatTextView, notiCartTextView;
+    notification notiNoti, notiChat, notiCart;
 
     //CỦA TÂN THÊM VÀO
     final static String USER_ID="TEST USER ID";
@@ -47,14 +49,13 @@ public class MainActivity extends AppCompatActivity {
         SearchTask search_task = new SearchTask(this);
         setFlashSaleContainer();
         setCart(this);
+        setNotificationInitialNumber();
         setAccount(this);
         //CỦA TÂN - THÊM DỮ LIỆU VÀO SUGGESTEDARR (Array này chứa thông tin của toàn bộ Products được kéo về trên database ONLINE)
         databaseReference= FirebaseDatabase.getInstance().getReference("PRODUCTS");
         picturedatabaseReferece= FirebaseDatabase.getInstance().getReference("uploads");
         getOfflineDB();
-        TextView notiNotiTextView = (TextView) findViewById(R.id.notification_number_notification);
-        notification notiNoti = new notification(notiNotiTextView, "notification");
-        notiNoti.setNotificationNumber(15);
+
         //KHÚC NÀY LÀ ĐỂ SET VIEW LÊN THỬ COI HIỆN HẾT ARRAY KHÔNG
        /** recyclerView=(RecyclerView)findViewById(R.id.reycleview);
         adapter=new RecycleViewAdapter(getApplicationContext(), suggestedArr, R.layout.cardview_layout, new RecycleViewAdapter.OnItemClickListener() {
@@ -69,6 +70,23 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 **/
+    }
+
+    private void setNotificationInitialNumber() {
+        notiNotiTextView = (TextView) findViewById(R.id.notification_number_notification);
+        notiNoti = new notification(notiNotiTextView, "notification");
+        notiChatTextView = (TextView) findViewById(R.id.notification_number_chat);
+        notiChat = new notification(notiChatTextView, "chat");
+        notiCartTextView = (TextView) findViewById(R.id.notification_number_cart);
+        notiCart = new notification(notiCartTextView, "cart");
+        /**@todo notification
+         * Notification class:
+         *      get initial notification number from database -> have to save..
+         *      if create new user -> initial notification = 0
+         * Use notification class:
+         *      show notification: show popup and run .showNotification()
+         *      1 more/less cart item etc. -> add item and run .increse/decreaseNoti()
+         */
     }
 
     void setFlashSaleContainer(){
@@ -90,11 +108,9 @@ public class MainActivity extends AppCompatActivity {
     }
     private void setAccount(final Context context) {
         ImageView account = (ImageView) findViewById(R.id.main_account);
-        Toast.makeText(context, "94", Toast.LENGTH_LONG).show();
         account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "97", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(context, AccountActivity.class);
                 startActivity(intent);
             }
