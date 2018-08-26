@@ -209,15 +209,13 @@
             android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.5"
-                android:src="@drawable/cart"
-                android:id="@+id/CartIcon"/>
+            android:layout_height="35dp">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:src="@drawable/cart"
+                    android:id="@+id/CartIcon"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -236,59 +234,65 @@
                 android:src="@drawable/chatbox"
                 android:id="@+id/ChatboxIcon"/>
         </LinearLayout>
+        <TextView
+            android:id="@+id/notification_number_cart"
+            android:layout_width="22dp"
+            android:layout_height="20dp"
+            android:background="@drawable/notificationnumber"
+            android:layout_marginLeft="38dp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite2"
+            android:textSize="12dp" />
+        <TextView
+            android:id="@+id/notification_number_chat"
+            android:layout_width="22dp"
+            android:layout_height="20dp"
+            android:background="@drawable/notificationnumber"
+            android:layout_marginLeft="460dp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite2"
+            android:textSize="12dp" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.11"
-        android:layout_marginBottom="7dp"
-        android:layout_marginTop="7dp"
-        android:orientation="horizontal">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/notification_number_notification"
+            android:layout_width="22dp"
+            android:layout_height="20dp"
+            android:background="@drawable/notificationnumber"
+            android:layout_marginLeft="280dp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite2"
+            android:textSize="12dp" />
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/feed"
-                android:layout_weight="0.2"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:src="@drawable/notification"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:layout_weight="0.11"
             android:orientation="horizontal">
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/user"
-                android:layout_weight="0.2"
-                android:id="@+id/main_account"
-                android:clickable="true"
-                android:focusable="true"/>
-            <TextView
-                android:layout_width="22dp"
-                android:layout_height="20dp"
-                android:padding="0dp"
-                android:layout_margin="0dp"
-                android:textSize="12dp"
-                android:textColor="@color/colorWhite2"
-                android:layout_gravity="top|right"
-                android:gravity="center"
-                android:id="@+id/notification_number_notification"
-                android:background="@drawable/notificationnumber"/>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:src="@drawable/feed" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:orientation="horizontal"
+                    android:src="@drawable/notification" />
+             <ImageView
+                    android:id="@+id/main_account"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/user" />
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
