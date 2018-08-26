@@ -8,10 +8,16 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.example.admin.finalprojectcs426finalproject.Account.notification;
 
 public class NavigationBar extends LinearLayout{
     ImageView homee, noti, account;
     Context currentContext;
+    TextView notiNotiTextView;
+    notification notiNoti;
+//@todo control notification
     public NavigationBar(Context context) {
         super(context);
         currentContext = context;
@@ -41,6 +47,9 @@ public class NavigationBar extends LinearLayout{
         homee = findViewById(R.id.homebtn);
         account = findViewById(R.id.main_account);
         noti = findViewById(R.id.notification);
+
+        notiNotiTextView = (TextView) findViewById(R.id.notification_number_notification);
+        notiNoti = new notification(notiNotiTextView, "notification");
 
         homee.setOnClickListener(new OnClickListener() {
             @Override

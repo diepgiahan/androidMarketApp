@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ViewFlipper FlashSaleContainer;
     ListView CategoryContainer;
-    TextView notiNotiTextView, notiChatTextView, notiCartTextView;
+    TextView notiChatTextView, notiCartTextView;
     notification notiNoti, notiChat, notiCart;
 
     Button addproduct;
@@ -116,12 +116,11 @@ public class MainActivity extends AppCompatActivity {
         });*/
     }
     private void setNotificationInitialNumber() {
-/*        notiNotiTextView = (TextView) findViewById(R.id.notification_number_notification);
-        notiNoti = new notification(notiNotiTextView, "notification");
+        //@todo link notification with user database ~ user class
         notiChatTextView = (TextView) findViewById(R.id.notification_number_chat);
         notiChat = new notification(notiChatTextView, "chat");
         notiCartTextView = (TextView) findViewById(R.id.notification_number_cart);
-        notiCart = new notification(notiCartTextView, "cart");*/
+        notiCart = new notification(notiCartTextView, "cart");
         /**@todo notification
          * Notification class:
          *      get initial notification number from database -> have to save..
