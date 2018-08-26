@@ -62,7 +62,6 @@ public class NavigationBar extends LinearLayout{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(),AccountActivity.class);
-                ((Activity)getContext()).finish();
                 getContext().startActivity(intent);
             }
         });
