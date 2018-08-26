@@ -9,6 +9,7 @@ public class ProdctsWithoutSeri {
     int quantity=1;
     String maincolour;
     String type;
+    String description="";
 
     public String getMaincolour() {
         return maincolour;
@@ -27,6 +28,17 @@ public class ProdctsWithoutSeri {
         this.quantity = quantity;
         this.maincolour = maincolour;
         this.type = type;
+    }
+
+    public ProdctsWithoutSeri(String id, String name, String newprice, String oldprice, int quantity, String maincolour, String type, String description) {
+        this.id = id;
+        this.name = name;
+        this.newprice = newprice;
+        this.oldprice = oldprice;
+        this.quantity = quantity;
+        this.maincolour = maincolour;
+        this.type = type;
+        this.description=description;
     }
 
     public ProdctsWithoutSeri() {

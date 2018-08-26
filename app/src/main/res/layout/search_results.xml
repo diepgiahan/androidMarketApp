@@ -57,7 +57,7 @@
             android:gravity="center"
             android:text="Liên quan"
             android:textColor="@color/colorBlack"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:onClick="related"
             android:id="@+id/related"
             android:layout_weight="1"/>
@@ -67,7 +67,7 @@
             android:gravity="center"
             android:text="Mới"
             android:textColor="@color/colorBlack"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:id="@+id/new_arrival"
             android:onClick="new_arrival"
             android:layout_weight="1"/>
@@ -77,7 +77,7 @@
             android:gravity="center"
             android:textColor="@color/colorBlack"
             android:id="@+id/rate"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:onClick="rate"
             android:text="Đánh giá"
             android:layout_weight="1.5"/>
@@ -91,7 +91,7 @@
                 android:gravity="center"
                 android:textColor="@color/colorBlack"
                 android:text="Giá"
-                android:textSize="16dp"
+                android:textSize="14dp"
                 android:id="@+id/price"
                 android:onClick="price"/>
             <ImageView
@@ -113,7 +113,7 @@
         android:layout_height="40dp"
         android:text="Xem thêm"
         android:textAllCaps="false"
-        android:textColor="@color/colorBlack"
-        android:background="@drawable/see_more"
+        android:textColor="@color/colorWhite2"
+        android:background="@color/colorMain"
         android:layout_gravity="center"/>
 </LinearLayout>

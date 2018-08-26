@@ -11,11 +11,15 @@ import java.util.List;
 
 public class Database {
 
-    private static List<Products> product_data; //store product database
+    private static List<Products> product_data=new ArrayList<>(); //store product database
 
     //Product database methods
-    Products getProductById(int id){
-        return product_data.get(id);
+    public Products getProductById(String id){
+        int i, res = 0;
+        for (i=0;i<product_data.size();i++)
+            if (product_data.get(i).getId()==id)
+                res = i;
+        return product_data.get(res);
     }
 
     public void addProduct(Products product){
@@ -27,8 +31,8 @@ public class Database {
 
         //Update Database tree
         TrieTree tree = new TrieTree();
-        tree.updateTreeViaDatabase(new Pair<String,Integer>(product.getName(),product_data.size()-1));
-        tree.updateTreeViaDatabase(new Pair<String,Integer>(product.getDescription(),product_data.size()-1));
+        tree.updateTreeViaDatabase(new Pair<String,String>(product.getName(),product.getId()));
+        tree.updateTreeViaDatabase(new Pair<String,String>(product.getDescription(),product.getId()));
     }
 
     public String getSalerByProduct(Products product) {
@@ -39,7 +43,10 @@ public class Database {
         return "saler name";
     }
 
-
+    public void setProduct_data(List<Products> product_data) {
+        for (int i=0;i<product_data.size();i++)
+            addProduct(product_data.get(i));
+    }
 
     //User database methods
     //

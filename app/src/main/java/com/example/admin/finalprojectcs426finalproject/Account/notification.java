@@ -1,9 +1,7 @@
 package com.example.admin.finalprojectcs426finalproject.Account;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class notification {
     TextView notiNumber;

@@ -13,29 +13,38 @@
             android:layout_height="match_parent">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="30dp">
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_height="100dp">
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="7"
-                    android:id="@+id/saler"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/name"
+                    android:gravity="center_horizontal"
+                    android:textSize="25dp"
                     android:text="name"/>
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:orientation="vertical"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3">
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginBottom="10dp">
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="10dp"
-                        android:id="@+id/old_price"
-                        android:text="old_price"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.7"
+                        android:textSize="17dp"
                         android:id="@+id/new_price"
                         android:text="new_price"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5"
+                        android:id="@+id/old_price"
+                        android:textSize="14dp"
+                        android:text="old_price"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -48,6 +57,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_height="50dp">
                 <ImageView
                     android:layout_width="50dp"
@@ -57,6 +68,8 @@
                 <TextView
                     android:layout_width="300dp"
                     android:layout_height="match_parent"
+                    android:id="@+id/saler"
+                    android:layout_marginLeft="10dp"
                     android:text="name"/>
             </LinearLayout>
             <TextView
@@ -75,5 +88,6 @@
         android:background="@color/colorMain"
         android:textColor="@color/colorWhite2"
         android:gravity="center"
+        android:textSize="16dp"
         android:text="Thêm Vào Giỏ Hàng"/>
 </LinearLayout>

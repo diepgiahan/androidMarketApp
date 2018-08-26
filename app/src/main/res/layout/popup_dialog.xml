@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:background="@drawable/rectangle_btn"
+        android:gravity="center"
+        android:padding="6dp"
+        android:orientation="vertical"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:textColor="#f5515e"
+            android:textAllCaps="false"
+            android:background="#ffffff"
+            android:textSize="22dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Open Camera"
+            android:id="@+id/opencamera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:background="#666565"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"/>
+
+        <Button
+            android:textColor="#303afd"
+            android:background="#ffffff"
+            android:textSize="22dp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/getfromlib"
+            android:text="Get from Gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

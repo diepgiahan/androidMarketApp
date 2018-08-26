@@ -47,11 +47,11 @@ public class SearchTask extends ContextWrapper {
         // Get the frequency of substrings in description and name of the item list
         // Rate item according to its frequency
         String substring; //to get token
-        Integer value; //temporary variable
-        Set<Integer> set = new HashSet<Integer>(); //to store unique ID product
-        Set<Integer> list = new HashSet<Integer>(); //temporary variable
-        TreeMap<Integer,Integer> rate_list = new TreeMap<>();
-        List<Pair<Integer,Integer>> sorted_list = new ArrayList<>(); //to sort rate_list value
+        String value; //temporary variable
+        Set<String> set = new HashSet<>(); //to store unique ID product
+        Set<String> list = new HashSet<>(); //temporary variable
+        TreeMap<String,Integer> rate_list = new TreeMap<>();
+        List<Pair<Integer,String>> sorted_list = new ArrayList<>(); //to sort rate_list value
         StringTokenizer tokenizer = new StringTokenizer(s," ,!@#$%^&*()"); //to do search string token task
 
         //with each substring
@@ -61,7 +61,7 @@ public class SearchTask extends ContextWrapper {
             //get the list of items containing substring
             list = tree.searchAWord(substring);
 
-            for (Iterator<Integer> i = list.iterator(); i.hasNext();){
+            for (Iterator<String> i = list.iterator(); i.hasNext();){
                 value = i.next();
                 set.add(value);
                 if (rate_list.get(value)==null)
@@ -71,30 +71,26 @@ public class SearchTask extends ContextWrapper {
         }
 
         // ~ Sort the id list according to rating
-        for (Iterator<Integer> i = set.iterator(); i.hasNext();){
+        for (Iterator<String> i = set.iterator(); i.hasNext();){
             value = i.next();
-            sorted_list.add(new Pair<Integer, Integer>(rate_list.get(value),value));
+            sorted_list.add(new Pair<Integer, String>(rate_list.get(value),value));
         }
 
         // ~ Implement Comparator of Pair<Integer,Integer> type
-        Collections.sort(sorted_list, new Comparator<Pair<Integer, Integer>>() {
+        Collections.sort(sorted_list, new Comparator<Pair<Integer, String>>() {
             @Override
-            public int compare(Pair<Integer, Integer> o1, Pair<Integer, Integer> o2) {
+            public int compare(Pair<Integer, String> o1, Pair<Integer, String> o2) {
 
                 if (o1.first > o2.first)
                     return -1;
                 else if (o1.first < o2.first)
-                    return 1;
-                else if (o1.second > o2.second)
-                    return -1;
-                else if (o1.second < o2.second)
                     return 1;
                 else return 0;
             }
         });
 
         // ~ Get id list after searching and rating
-        List<Integer> id_list = new ArrayList<Integer>();
+        List<String> id_list = new ArrayList<>();
         for (int i=0;i<sorted_list.size();i++)
             id_list.add(sorted_list.get(i).second);
 
@@ -103,7 +99,7 @@ public class SearchTask extends ContextWrapper {
         Intent intent = new Intent(this,SearchResultActivity.class);
 
         // ~ Push id list searched to the new activity
-        intent.putIntegerArrayListExtra("id list",(ArrayList<Integer>)id_list);
+        intent.putStringArrayListExtra("id list",(ArrayList<String>)id_list);
         intent.putExtra("search string",s);
 
         // ~ Start the activity
@@ -111,15 +107,15 @@ public class SearchTask extends ContextWrapper {
     }
 
     List<Integer> searchNoNewAcitivy(String s){
-        if (s==null)
+        /*if (s==null)
             return new ArrayList<Integer>();
 
         // Default search query: OR query
         // Get the frequency of substrings in description and name of the item list
         // Rate item according to its frequency
         String substring; //to get token
-        Integer value; //temporary variable
-        Set<Integer> set = new HashSet<Integer>(); //to store unique ID product
+        String value; //temporary variable
+        Set<String> set = new HashSet<Integer>(); //to store unique ID product
         Set<Integer> list = new HashSet<Integer>(); //temporary variable
         TreeMap<Integer,Integer> rate_list = new TreeMap<>();
         List<Pair<Integer,Integer>> sorted_list = new ArrayList<>(); //to sort rate_list value

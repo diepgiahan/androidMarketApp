@@ -1,13 +1,12 @@
 package com.example.admin.finalprojectcs426finalproject;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,7 +25,7 @@ import static java.lang.String.valueOf;
 
 //import com.example.dghan.androidmarketapp.Account.RegisterDialog.OnDialogListener;
 
-public class AccountActivity extends Activity {// implements OnDialogListener {
+public class AccountActivity extends AppCompatActivity {// implements OnDialogListener {
     static boolean loggedIn = false;
     static int switchDialog = -1;
     DatabaseReference userRef;
@@ -43,10 +42,17 @@ public class AccountActivity extends Activity {// implements OnDialogListener {
         } else{
             setContentView(R.layout.activity_account_login);
             normalAccount();
+            Button btn=findViewById(R.id.upload_product);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent=new Intent(AccountActivity.this, UploadProduct.class);
+                    startActivityForResult(intent,0);
+                }
+            });
         }
     }
     public void onRefresh(){
-        Toast.makeText(getApplicationContext(), "Refresh", Toast.LENGTH_LONG).show();
         Intent intent = getIntent();
         finish();
         startActivity(intent);
@@ -81,14 +87,13 @@ public class AccountActivity extends Activity {// implements OnDialogListener {
         // @todo add buy history
         // @todo add search history
 
-        Button btn_logout = (Button)findViewById(R.id.btnLogout);
+        ImageView btn_logout = (ImageView)findViewById(R.id.btnLogout);
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Pressed Logout", Toast.LENGTH_LONG).show();
                 username_str = "Guest user";
 //                    avatarImage = BitmapFactory.decodeResource(getResources(), R.drawable.man);// this will be function by the prev...
-                // refresh activity
                 loggedIn = false;
                 onRefresh();
             }
@@ -130,7 +135,6 @@ public class AccountActivity extends Activity {// implements OnDialogListener {
         }
         if(loggedIn)  onRefresh();
     }
-    @SuppressLint("ClickableViewAccessibility")
     public void loginDialog(){
         switchDialog = -1;
         final Dialog loginDialog = new Dialog(this);
@@ -210,5 +214,4 @@ public class AccountActivity extends Activity {// implements OnDialogListener {
         //avatarImage = BitmapFactory.decodeResource(getResources(), R.drawable.man);
         return true; // work fine
     }
-
 }

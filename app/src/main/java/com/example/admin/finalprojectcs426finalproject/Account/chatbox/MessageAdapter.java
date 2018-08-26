@@ -6,9 +6,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.admin.finalprojectcs426finalproject.R;
-//import com.example.dghan.androidmarketapp.R;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DatabaseReference;
+
+//import com.example.dghan.androidmarketapp.R;
 
 public class MessageAdapter extends FirebaseListAdapter<ChatMessage> {
 

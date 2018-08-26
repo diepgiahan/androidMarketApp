@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-//import com.example.dghan.androidmarketapp.R;
 import com.example.admin.finalprojectcs426finalproject.R;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -20,6 +19,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+
+//import com.example.dghan.androidmarketapp.R;
 
 public class ChatboxActivity extends Activity {
     private static final int SIGN_IN_REQUEST_CODE = 111;

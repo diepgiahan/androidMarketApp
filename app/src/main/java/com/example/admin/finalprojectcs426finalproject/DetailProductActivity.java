@@ -24,11 +24,13 @@ public class DetailProductActivity extends Activity {
         params.gravity = Gravity.BOTTOM;
         getWindow().setAttributes(params);*/
         Intent intent = getIntent();
+        Bundle bundle=intent.getExtras();
         Database database = new Database();
-        final Products product = database.getProductById(intent.getIntExtra("product",0));
+        final Products product = (Products)bundle.get("incart");
         //((ImageView)findViewById(R.id.image)).setImageResource();
         //saler image
         ((TextView)findViewById(R.id.saler)).setText(database.getSalerByProduct(product));
+        ((TextView)findViewById(R.id.name)).setText(product.getName());
         ((TextView)findViewById(R.id.old_price)).setText(product.getOldprice());
         ((TextView)findViewById(R.id.new_price)).setText(product.getNewprice());
         ((TextView)findViewById(R.id.description)).setText(product.getDescription());
@@ -37,9 +39,8 @@ public class DetailProductActivity extends Activity {
             public void onClick(View v) {
                 Cart cart = new Cart();
                 Intent intent1 = new Intent(context,AskForAdding.class);
+                intent1.putExtra("id",product.getId());
                 context.startActivity(intent1);
-                //cart.add(product.getId(),1);
-
             }
         });
     }

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main.UploadProduct"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_margin="5dp"
+            android:padding="4dp"
+            android:textSize="22dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="#666565"
+            android:background="@drawable/rectangle_btn"
+            android:hint="Tên sản phẩm (*)"
+            android:id="@+id/Upload_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/Upload_type"
+            android:fontFamily="sans-serif-condensed"
+            android:entries="@array/type"
+            android:layout_margin="5dp"
+            android:padding="4dp"
+            android:background="@drawable/rectangle_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Spinner>
+        <LinearLayout
+
+
+            android:padding="4dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/rectangle_btn"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:textSize="18dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_weight="1"
+                    android:hint="Giá (*)"
+                    android:id="@+id/Upload_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <EditText
+                    android:textSize="18dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_weight="1"
+                    android:hint="Giá khuyến mãi"
+                    android:id="@+id/Upload_price_on_sale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <EditText
+                android:textSize="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="Tồn (*)"
+                android:id="@+id/Upload_Stock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:textSize="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="Màu chính"
+                android:id="@+id/Upload_MainColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:textSize="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="Ghi chú "
+                android:id="@+id/Upload_Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:background="@drawable/rectangle_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:padding="10dp"
+                android:textSize="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="Hình minh họa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/Upload_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+
+                <Button
+                    android:id="@+id/addpictureBtn"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_margin="2dp"
+                    android:textSize="15dp"
+                    android:textAllCaps="false"
+                    android:text=" + Thêm \n ảnh"
+                    android:background="@drawable/rectangle_btn"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:layout_marginRight="14dp"
+            android:layout_marginLeft="14dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:background="#fa7171"
+            android:text="Đăng Tải"
+            android:id="@+id/Upload_upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

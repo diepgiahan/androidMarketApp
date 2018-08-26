@@ -23,7 +23,7 @@ import java.util.List;
 
 
 public class SearchResultActivity extends AppCompatActivity {
-    List<Integer> id_list = new ArrayList<Integer>();
+    List<String> id_list = new ArrayList<>();
     Database database = new Database();
     ArrayList<Products> products = new ArrayList<>();
     Integer number_of_times=0;
@@ -38,7 +38,7 @@ public class SearchResultActivity extends AppCompatActivity {
 
         ///Get the list of ID's product (id_list) created by SearchTask
 
-        id_list = intent.getIntegerArrayListExtra("id list");
+        id_list = intent.getStringArrayListExtra("id list");
         EditText editText = (EditText)findViewById(R.id.search_edit_frame);
         editText.setText(intent.getStringExtra("search string"));
         editText.setSelection(editText.getText().length());
@@ -50,9 +50,9 @@ public class SearchResultActivity extends AppCompatActivity {
         }
 
         //Set search results (products) to list view
-        ListView list_view = (ListView)findViewById(R.id.result_list);
+        /*ListView list_view = (ListView)findViewById(R.id.result_list);
         ProductAdapter product_adapter = new ProductAdapter(SearchResultActivity.this,products);
-        list_view.setAdapter(product_adapter);
+        list_view.setAdapter(product_adapter);*/
     }
 
         public void related(View view) {

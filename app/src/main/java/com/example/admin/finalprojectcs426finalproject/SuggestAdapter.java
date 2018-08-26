@@ -1,5 +1,6 @@
 package com.example.admin.finalprojectcs426finalproject;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -37,6 +38,7 @@ public class SuggestAdapter extends ArrayAdapter<String> {
             public void onClick(View v) {
                 SearchTask searchTask = new SearchTask(context);
                 searchTask.search(((TextView)v).getText().toString());
+                ((Activity)context).finish();
             }
         });
         return view;

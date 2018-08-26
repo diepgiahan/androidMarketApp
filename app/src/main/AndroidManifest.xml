@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.admin.finalprojectcs426finalproject">
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -21,10 +22,15 @@
             android:theme="@style/AppTheme.PopMe">
 
         </activity>
+        <activity android:name=".UploadProduct"></activity>
+        <activity android:name=".AccountActivity"
+            android:theme="@style/AppTheme.PopMe"></activity>
         <activity android:name=".CartPopUpActivity"></activity>
         <activity android:name=".DetailProductActivity"></activity>
         <activity android:name=".ConfirmOrder"></activity>
         <activity android:name=".AskForAdding"
+            android:theme="@style/AppTheme.PopMe"></activity>
+        <activity android:name=".AskAfterAdding"
             android:theme="@style/AppTheme.PopMe"></activity>
     </application>
 

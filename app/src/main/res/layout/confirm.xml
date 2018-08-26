@@ -17,22 +17,91 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:src="@drawable/shipping"/>
-        <TextView
+        <LinearLayout
+
+            android:layout_gravity="center"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_marginTop="4dp"
-            android:layout_height="35dp"
-            android:background="@color/colorWhite2"
-            android:textColor="@color/colorBlack"
-            android:textSize="20dp"
-            android:gravity="center"
-            android:text="Nhập địa chỉ của bạn"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_height="100dp"
-            android:cursorVisible="false"
-            android:background="@drawable/single_border"/>
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_margin="5dp"
+                android:padding="4dp"
+                android:textSize="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="#666565"
+                android:background="@drawable/rectangle_btn"
+                android:hint="Tên người đặt hàng (*)"
+                android:id="@+id/Order_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+
+                android:background="@drawable/rectangle_btn"
+                android:layout_margin="5dp"
+                android:padding="4dp"
+
+                android:textSize="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_weight="1"
+                android:hint="Số điện thoại (*)"
+                android:id="@+id/Order_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <EditText
+                android:background="@drawable/rectangle_btn"
+                android:layout_margin="5dp"
+                android:padding="4dp"
+
+                android:textSize="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="Địa chỉ (*) "
+                android:id="@+id/Order_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <Spinner
+                android:id="@+id/Order_ship"
+                android:layout_margin="5dp"
+                android:padding="4dp"
+                android:background="@drawable/rectangle_btn"
+                android:entries="@array/type_ship"
+                android:textSize="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </Spinner>
+
+            <LinearLayout
+                android:padding="4dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/rectangle_btn"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:gravity="top"
+                    android:textSize="18dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:hint="Ghi chú"
+                    android:id="@+id/Order_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
     </ScrollView>
     <TextView
@@ -40,6 +109,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
+        android:id="@+id/confirmorder"
         android:textColor="@color/colorBlack"
         android:background="@color/colorMain4"
         android:text="XÁC NHẬN ĐẶT HÀNG"/>

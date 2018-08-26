@@ -16,7 +16,7 @@ public class TrieTree {
         }
     }
 
-    public void addAWord(String word, int id){
+    public void addAWord(String word, String id){
         TrieTreeNode tmp = root;
         for (int i=0;i<word.length();i++){
             if ((tmp.getChild())[word.charAt(i)]==null){
@@ -27,7 +27,7 @@ public class TrieTree {
         tmp.setList(id);
     }
 
-    public Set<Integer> searchAWord(String word){
+    public Set<String> searchAWord(String word){
         TrieTreeNode tmp = root;
         for (int i=0;i<word.length();i++){
             if (tmp.getChild()[word.charAt(i)]==null)
@@ -64,10 +64,10 @@ public class TrieTree {
     }
 
 
-    public void updateTreeViaDatabase(Pair<String,Integer> update){
+    public void updateTreeViaDatabase(Pair<String,String> update){
         String string = update.first;
         int end = string.length();
-        Integer id = update.second;
+        String id = update.second;
         addAWord(update.first,id);
         String substring="";
         for (int i=0;i<string.length();i++)

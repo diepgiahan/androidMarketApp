@@ -1,4 +1,19 @@
 <resources>
-    <string name="app_name">Market App</string>
+    <string name="app_name">Final Project</string>
     <string name="vnd"><u>đ</u></string>
+    <string-array name="type">
+        <item>Thời Trang</item>
+        <item>Thực Phẩm</item>
+        <item>Văn Phòng Phẩm</item>
+        <item>Đồ Dùng Gia Đình</item>
+        <item>Nội Thất</item>
+        <item>Nhạc Cụ</item>
+        <item>Dã Ngoại</item>
+        <item>Điện Tử</item>
+    </string-array>
+    <string-array name="type_ship">
+        <item>Ship COD</item>
+        <item>Giao dịch trực tiếp</item>
+        <item>Chuyển khoản</item>
+    </string-array>
 </resources>

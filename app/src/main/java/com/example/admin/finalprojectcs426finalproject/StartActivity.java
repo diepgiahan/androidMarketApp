@@ -72,7 +72,7 @@ public class StartActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                     //open login activity when user taps on the already registered textview
-                    startActivity(new Intent(StartActivity.this, AccountActivity.class));
+                    startActivity(new Intent(StartActivity.this, LoginActivity.class));
 
             }
         });

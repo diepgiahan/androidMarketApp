@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class CartPopUpActivity extends Activity {
     Context context;
+    TextView totalview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +28,12 @@ public class CartPopUpActivity extends Activity {
         getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         params.gravity = Gravity.BOTTOM;
         getWindow().setAttributes(params);*/
+
+        totalview=findViewById(R.id.total);
         final Cart cart = new Cart();
-        ArrayList<Integer> products = cart.getProducts();
+        ArrayList<String> products = cart.getProducts();
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.view);
-        CartRecyclerViewAdapter adapter = new CartRecyclerViewAdapter(this,products);
+        CartRecyclerViewAdapter adapter = new CartRecyclerViewAdapter(this,products,totalview);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //((TextView)findViewById(R.id.total)).setText(Integer.toString());
@@ -40,8 +43,14 @@ public class CartPopUpActivity extends Activity {
                 if (cart.size()==0) return;
                 Intent intent = new Intent(context,ConfirmOrder.class);
                 context.startActivity(intent);
+                finish();
             }
         });
+
+        int total = 0;
+        for (int i=0;i<cart.size();i++)
+            total = total + cart.getAmountAt(i)*cart.getPriceAt(i);
+        ((TextView)findViewById(R.id.total)).setText(Integer.toString(total));
     }
 
     public void close(View view) {
